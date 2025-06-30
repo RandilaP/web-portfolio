@@ -18,15 +18,14 @@ import { gilroy } from "@/fonts/fonts";
 // Define items for GooeyNav (moved from page.tsx)
 const items = [
   { label: "Home", href: "/" },
-  { label: "Awards", href: "/Hackathons" },
-  { label: "Contact", href: "/Contact" }, // Adjust as needed
+  { label: "Projects", href: "/projects" }, // Adjust as needed
 ];
 
 // Define social media links and placeholder icon paths
 const socialLinks = [
-  { platform: "GitHub", href: "https://github.com/Yuyuhiei", iconPath: "/icons/github_icon.svg" }, // <-- Replace YOUR_GITHUB_LINK and icon path
-  { platform: "LinkedIn", href: "https://www.linkedin.com/in/lauvigne-lumeda/", iconPath: "/icons/linkedin_icon.svg" }, // <-- Replace YOUR_LINKEDIN_LINK and icon path
-  { platform: "Gmail", href: "mailto:lumedalauvigne@gmail.com", iconPath: "/icons/gmail_icon.svg" }, // <-- Replace YOUR_EMAIL_ADDRESS and icon path
+  { platform: "GitHub", href: "https://github.com/RandilaP", iconPath: "/icons/github_icon.svg" }, // <-- Replace YOUR_GITHUB_LINK and icon path
+  { platform: "LinkedIn", href: "https://www.linkedin.com/in/randila-premarathne-a7894b239/", iconPath: "/icons/linkedin_icon.svg" }, // <-- Replace YOUR_LINKEDIN_LINK and icon path
+  { platform: "Gmail", href: "mailto:randilamenukapremarathne@gmail.com", iconPath: "/icons/gmail_icon.svg" }, // <-- Replace YOUR_EMAIL_ADDRESS and icon path
 ];
 
 
@@ -202,20 +201,20 @@ export default function RootLayout({
           {/* Adjusted margin for different screen sizes */}
             <Link href="/" passHref>
              <Image
-                src="/logo/lauv-logo2.svg"
-                alt="Lauv Logo"
+                src="/logo/logo.png"
+                alt="Logo"
                 width={35} // Base size for logo
                 height={35} // Base size for logo
                 // Added responsive sizing for the logo image itself if needed (optional, depends on design)
-                // className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125"
-                className="m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125" // Adjusted margin
+                // className="w-8 h-8 m-4 transition-all duration-300 sm:w-9 sm:h-9 md:w-10 md:h-10 md:m-10 hover:scale-150 hover:rotate-10 hover:brightness-125"
+                className="m-4 transition-all duration-300 md:m-10 hover:scale-150 hover:rotate-10 hover:brightness-125" // Adjusted margin
              />
             </Link>
 
 
           {/* Desktop Navigation - hidden on small screens */}
           {/* Container with fixed dimensions - GooeyNav should handle internal responsiveness */}
-          <div className="hidden md:block font-medium" style={{ height: '70px', width: '400px', position: 'relative' }}>
+          <div className="hidden font-medium md:block" style={{ height: '70px', width: '400px', position: 'relative' }}>
             <GooeyNav
               items={items} // The items array contains { label, href }
               particleCount={15}
@@ -231,7 +230,7 @@ export default function RootLayout({
 
           {/* Hamburger button - visible only on small screens */}
           <button
-            className="md:hidden text-white p-2 focus:outline-none"
+            className="p-2 text-white md:hidden focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu" // Added accessibility label
           >
@@ -257,7 +256,7 @@ export default function RootLayout({
                   key={index}
                   href={item.href}
                   // Added responsive padding to the links
-                  className="text-white hover:text-gray-300 py-2 px-4 font-medium text-base sm:text-lg" // Adjusted text size
+                  className="px-4 py-2 text-base font-medium text-white hover:text-gray-300 sm:text-lg" // Adjusted text size
                   onClick={() => setMobileMenuOpen(false)} // Keep the click handler to close the menu
                 >
                   {item.label}
@@ -291,7 +290,7 @@ export default function RootLayout({
                 // Adjusted icon size responsively
                 width={20} // Base size for mobile
                 height={20} // Base size for mobile
-                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 object-contain" // Responsive size and object-contain
+                className="object-contain w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" // Responsive size and object-contain
               />
             </Link>
           ))}

@@ -7,57 +7,72 @@ import Image from 'next/image';
 // import { comma } from 'postcss/lib/list';
 
 
-const experiences = [
-  // ... your experiences array - Keep this array as is
+export const experiences = [
   {
     id: 1,
-    title: 'Student Trainee',
-    company: 'Datacom',
-    year: '2015',
-    description: 'Attended a three-month workshop at DATACOM during my younger years, where we were taught about the fundamentals of MS Excel, the proficiency of keyboarding, and the main components of a computer system.',
-    logo: '/exp_logos/datacom.svg',
+    title: "Junior Backend Software Engineer",
+    company: "The Jobhelpers",
+    year: "2024 – Present",
+    description:
+      "Built and deployed scalable job scraping systems, optimized email infrastructure, and developed Chrome extensions integrated with ATS feedback. Helped grow the job database from 20K+ to over 1M listings.",
+    logo: "/exp_logos/jobhelpers-logo.png",
   },
   {
     id: 2,
-    title: 'External Scholar',
-    company: 'Security Bank Corporation',
-    year: '2022',
-    description: 'One of the external scholars of the Security Bank Corporation. Inside this, we are tasked with attending related seminars and maintaining grades on our academic standings.',
-    logo: '/exp_logos/sbc.svg',
+    title: "Software Engineering Intern",
+    company: "The Jobhelpers",
+    year: "2024",
+    description:
+      "Worked on internal dashboards and resume scoring tools using React, Tailwind, Node.js, and OpenAI API. Enhanced resume-to-job alignment with smart AI-powered integrations.",
+    logo: "/exp_logos/jobhelpers-logo.png",
   },
   {
     id: 3,
-    title: 'Academe Committee Head',
-    company: 'PLM College of Engineering Student Council',
-    year: '2023',
-    description: `As the head of the committee, I am in charge of developing new plans and events for the student body while collaborating with my members. We ensure that we give the best experience to the students academically. That's why we also receive and assess students' concerns around the campus.`,
-    logo: '/exp_logos/plmce.svg',
+    title: "Tech Lead - Volunteer",
+    company: "Sasnaka Sansada",
+    year: "2024 – Present (On Hold)",
+    description:
+      "Led a team of 10+ developers to build a volunteer management system using Next.js and Supabase. Streamlined project and member coordination for 200+ volunteers across Sri Lanka.",
+    logo: "/exp_logos/sasnaka.png",
   },
   {
     id: 4,
-    title: 'Web Development Lead',
-    company: 'Google Developer Student Clubs - PLM',
-    year: '2024',
-    description: 'As the Web Development Lead for GDSC PLM, I spearheaded initiatives to create impactful technology and web development projects and events, both online and in-person, aimed at benefiting not only PLM students but the wider community.',
-    logo: '/exp_logos/gdscplm.svg',
+    title: "Google Summer of Code Developer",
+    company: "OpenMRS / Google",
+    year: "2023",
+    description:
+      "Extended E2E test coverage for the OpenMRS 3.0 Reference Application using Playwright and Cucumber. Improved QA reliability by 60% and supported healthcare platforms in 40+ countries.",
+    logo: "/exp_logos/gsoc-logo.png",
   },
   {
     id: 5,
-    title: 'Notion Campus Leader',
-    company: 'Notion',
-    year: '2024',
-    description: `Holding the distinction of being one of the few chosen Notion Campus Leaders globally, my role is to drive the adoption and skillful utilization of Notion among users, especially students. This involves creating and leading campaigns, events, and initiatives designed to meet Notion's strategic goals.`,
-    logo: '/exp_logos/notion.svg',
+    title: "Developer & Contributor",
+    company: "OpenMRS",
+    year: "2022 – Present",
+    description:
+      "Contributed to QA automation and REST API improvements for mission-critical health systems. Active member of the OpenMRS QA and dev community.",
+    logo: "/exp_logos/openmrs-logo.png",
   },
   {
     id: 6,
-    title: 'DataCamp Scholar',
-    company: 'DataCamp',
-    year: '2025',
-    description: 'As a DataCamp Scholar, I am privileged to be part of a select group of students who have been recognized for their outstanding performance and potential in the field of data science. This recognition underscores my commitment to advancing my skills and knowledge in this dynamic field.',
-    logo: '/exp_logos/datacamp.svg',
+    title: "Frontend Contributor",
+    company: "Sustainable Education Foundation",
+    year: "2022 – 2023",
+    description:
+      "Helped improve SEF’s mentorship platform using React and Tailwind, enhancing student access to learning and guidance.",
+    logo: "/exp_logos/sef-logo.png",
   },
+  {
+    id: 7,
+    title: "Frontend Developer (Volunteer)",
+    company: "Lanka Software Foundation",
+    year: "2022 – 2023",
+    description:
+      "Developed UI components for the Elixir platform during Sri Lanka's economic crisis to help distribute life-saving medicine.",
+    logo: "/exp_logos/lsf-logo.png",
+  }
 ];
+
 
 const ExperienceTimeline: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,11 +96,11 @@ const ExperienceTimeline: React.FC = () => {
   const dotTop = useTransform(scaleY, [0, 1], ['0%', '100%']);
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8 mt-10">
+    <div ref={containerRef} className="relative w-full max-w-5xl px-4 py-16 mx-auto mt-10 sm:px-6 lg:px-8">
       {/* Central Timeline Line */}
       {/* Framer Motion automatically promotes transform properties for hardware acceleration */}
       <motion.div
-        className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-cyan-600 to-cyan-800 transform -translate-x-1/2"
+        className="absolute top-0 bottom-0 w-1 transform -translate-x-1/2 left-1/2 bg-gradient-to-b from-cyan-400 via-cyan-600 to-cyan-800"
         style={{ scaleY: scaleY, transformOrigin: 'top' }}
       />
 
@@ -103,27 +118,27 @@ const ExperienceTimeline: React.FC = () => {
       <div className="relative space-y-24">
         {experiences.map((exp, index) => (
           // Changed grid to 2 columns, removed the 'auto' middle column
-          <div key={exp.id} className="relative grid grid-cols-1 md:grid-cols-2 items-start gap-x-20 bg-black rounded-2xl p-6 shadow-lg md:bg-transparent">
+          <div key={exp.id} className="relative grid items-start grid-cols-1 p-6 bg-black shadow-lg md:grid-cols-2 gap-x-20 rounded-2xl md:bg-transparent">
             {/* Side 1: Title, Company, Year, Logo - Conditional Alignment */}
             <div className={`flex flex-col ${index % 2 === 0 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'} ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-              <h3 className="md:text-2xl text-xl font-bold text-gray-100">{exp.title}</h3>
+              <h3 className="text-xl font-bold text-gray-100 md:text-2xl">{exp.title}</h3>
 
-              <p className="text-lg text-cyan-400 mb-1">{exp.company}</p>
+              <p className="mb-1 text-lg text-cyan-400">{exp.company}</p>
               {/* Year */}
               <span
-                className="md:text-xl text-md font-regular text-gray-400 mb-2"
+                className="mb-2 text-gray-400 md:text-xl text-md font-regular"
                 style={{ letterSpacing: '0.4em' }}
               >
                 {exp.year}
               </span>
 
               {/* Logo */}
-              <div className="w-10 h-10 relative flex items-center justify-center md:my-0 my-5"> {/* Added flex centering for logos */}
+              <div className="relative flex items-center justify-center w-10 h-10 my-5 md:my-0"> {/* Added flex centering for logos */}
                 <Image
                   src={exp.logo}
                   alt={`${exp.company} logo`}
                   fill
-                  style={{ objectFit: 'contain' }} // Use contain to show the whole logo
+                  style={{ objectFit: 'fill', borderRadius: '50%' }} // Use contain to show the whole logo
                   unoptimized // Keep if necessary for SVGs, but test without if possible
                 />
               </div>
